@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-CallogApp-51813CC4-DF3B-497C-ADC6-BC552667AA98</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200406064214_AddStatusRequestTypeDeviceToDatabase.cs" />
+    <Compile Remove="Data\Migrations\20200406064214_AddStatusRequestTypeDeviceToDatabase.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200408063948_AdjustCallModel.cs" />
+    <Compile Remove="Data\Migrations\20200408063948_AdjustCallModel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200408070455_AdjustCallModelAddStatus.cs" />
+    <Compile Remove="Data\Migrations\20200408070455_AdjustCallModelAddStatus.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200408214617_unkownChanges.cs" />
+    <Compile Remove="Data\Migrations\20200408214617_unkownChanges.Designer.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="SweetAlert" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

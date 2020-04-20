@@ -1,0 +1,55 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+
+
+<div class="main-bg" style="padding-top:100px">
+    <!-- title -->
+
+    <!-- //title -->
+    <!-- content -->
+    <div class="sub-main-w3">
+        <div class="bg-content-w3pvt">
+            <div class="top-content-style">
+                <img src="images/user.jpg" alt="" />
+            </div>
+            <form id="account" method="post">
+                <p class="legend">Login Here<span class="fa fa-hand-o-down"></span></p>
+                <div class="input">
+                    <input type="email" placeholder="Email" asp-for="Input.Email" required />
+                    <span class="fa fa-envelope"></span>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="input">
+                    <input type="password" placeholder="Password" asp-for="Input.Password" required />
+                    <span class="fa fa-unlock"></span>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+               
+                    <label asp-for="Input.RememberMe">
+                        <input asp-for="Input.RememberMe" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+             
+                <button type="submit" class="btn submit">
+                    <span class="fa fa-sign-in"></span>
+                </button>
+            </form>
+            <a id="forgot-password" asp-page="./ForgotPassword" class="bottom-text-w3ls">Forgot Password?</a>
+        </div>
+    </div>
+    <!-- //content -->
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

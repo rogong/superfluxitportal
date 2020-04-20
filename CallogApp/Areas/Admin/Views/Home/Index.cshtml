@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a> <i class="fa fa-angle-right"></i></li>
+</ol>
+<!--four-grids here-->
+<div class="four-grids">
+    <div class="col-md-3 four-grid">
+        <div class="four-agileits">
+            <div class="icon">
+                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+            </div>
+            <div class="four-text">
+                <h3>Users</h3>
+                <h4> @ViewBag.usersCount</h4>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3 four-grid">
+        <div class="four-agileinfo">
+            <div class="icon">
+                <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
+            </div>
+            <div class="four-text">
+                <h3>Requests</h3>
+                <h4>@ViewBag.requestsCount</h4>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3 four-grid">
+        <div class="four-w3ls">
+            <div class="icon">
+                <i class="glyphicon glyphicon-phone" aria-hidden="true"></i>
+            </div>
+            <div class="four-text">
+                <h3>Calls</h3>
+                <h4> @ViewBag.callsCount</h4>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3 four-grid">
+        <div class="four-wthree">
+            <div class="icon">
+                <i class="glyphicon glyphicon-briefcase" aria-hidden="true"></i>
+            </div>
+            <div class="four-text">
+                <h3>Projects</h3>
+                <h4>Coming Soon</h4>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--//four-grids here-->
+<!--agileinfo-grap-->
+<div class="agileinfo-grap">
+    <div class="agileits-box">
+        <header class="agileits-box-header clearfix">
+            <h3>Pending Issue(s)</h3>
+            <div class="toolbar">
+                
+            </div>
+        </header>
+        <div class="agileits-box-body clearfix">
+            <div id="hero-area"></div>
+        </div>
+    </div>
+</div>
+<!--//agileinfo-grap-->
+<!--photoday-section-->
+
+

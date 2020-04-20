@@ -1,0 +1,133 @@
+﻿@page
+@model RegisterModel
+@using CallogApp.Utility
+@{
+    ViewData["Title"] = "Register";
+
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <style>
+        .fz {
+            font-size: 11px;
+        }
+    </style>
+}
+
+<div class="w3layouts-two-grids">
+    <!---728x90--->
+    <div class="mid-class">
+        <div class="img-right-side">
+            <h3>Superflux IT Sign Up Form</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget Lorem ipsum dolor sit
+                amet, consectetuer adipiscing elit. Aenean commodo ligula ege
+            </p>
+            <img src="images/b11.png" class="img-fluid" alt="">
+        </div>
+        <div class="txt-left-side">
+
+            <h6> Sign Up Here </h6>
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div class="a-alert-container">
+                    <div class="a-alert-content">
+                        <div asp-validation-summary="All" class="text-danger fz"></div>
+                    </div>
+                </div>
+                @*   <span asp-validation-for="Input.Name" class="text-danger fz" ></span>
+                    <span asp-validation-for="Input.Email" class="text-danger fz" style="font-size: 11px"></span>
+                    <span asp-validation-for="Input.Password" class="text-danger fz"></span>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger fz"></span>*@
+                <hr />
+                <div class="form-left-to-w3l fz">
+
+                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <input asp-for="Input.Name" type="text" placeholder="Name" required="" class="fz" />
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form-left-to-w3l fz">
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                    <input asp-for="Input.Email" type="email" placeholder="Email" required="" class="fz" />
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form-left-to-w3l fz">
+
+                    <span class="fa fa-lock" aria-hidden="true"></span>
+                    <input type="password" asp-for="Input.Password" placeholder="Password" required="" class="fz" />
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <div class="form-left-to-w3l fz">
+
+                    <span class="fa fa-lock" aria-hidden="true"></span>
+                    <input type="password" asp-for="Input.ConfirmPassword" placeholder="Password" required="" class="fz" />
+                    <div class="clear"></div>
+
+                </div>
+
+
+                <div class="row fz">
+
+                    <div class="col-7">
+                        <label style="margin-left:0px">Department</label>
+                        <select asp-for="Input.Department" class="form-control fz" asp-items="ViewBag.DepartmentId"></select>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="col-5">
+
+                        <label>Title</label>
+                        <select class="form-control fz" id="Title" asp-for="Input.Title">
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <hr />
+                <div class="main-two-w3ls fz">
+                    <div class="left-side-forget">
+
+                        <input type="radio" name="IdUserRole" value="@SD.TeamMember" checked />@SD.TeamMember
+
+                    </div>
+
+                    <div class="right-side-forget">
+                        <div class="left-side-forget">
+                            <input type="radio" name="IdUserRole" value="@SD.HOD" checked />@SD.HOD
+                        </div>
+                    </div>
+                </div>
+                <div class="btnn">
+                    <button type="submit" class="btn btn-primary btn-sm">Sign Up </button>
+                </div>
+            </form>
+            <div class="w3layouts_more-buttn">
+                <h3>
+                    Have an account..?
+                    <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">
+                        Login Here
+                    </a>
+                </h3>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,85 @@
+﻿@model CallogApp.Models.Request
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row">
+  
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        
+        <div class="w3l-table-info">
+            <div class="message">@ViewBag.Message</div>
+            <div class="agile-tables">
+                <h4 class="text-dark text-uppercase">Create Request</h4>
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @Html.Hidden("UserId")
+                    @Html.Hidden("DateCreated")
+
+                    <div class="form-group">
+                        <label asp-for="Subject" class="control-label"></label>
+                        <input asp-for="Subject" class="form-control" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="DepartmentId" class="control-label"></label>
+                            <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="IssueId" class="control-label"></label>
+                            <select asp-for="IssueId" class="form-control" asp-items="ViewBag.IssueId"></select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="DeviceId" class="control-label"></label>
+                            <select asp-for="DeviceId" class="form-control" asp-items="ViewBag.DeviceId"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="RequestTypeId" class="control-label"></label>
+                            <select asp-for="RequestTypeId" class="form-control" asp-items="ViewBag.RequestTypeId"></select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="StatusId" class="control-label"></label>
+                            <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="ITStaffId" class="control-label"></label>
+                            <select asp-for="ITStaffId" class="form-control" asp-items="ViewBag.ITStaffId"></select>
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Message" class="control-label"></label>
+                        <textarea asp-for="Message" class="form-control"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-block btn-primary text-white" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+
+        <a asp-action="Index">Back to List</a>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CallogApp.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="agile-tables">
+        <div class="col-md-8">
+
+        </div>
+
+        <div class="col-md-4">
+            <a asp-area="Admin" asp-controller="Departments" asp-action="Create" class="btn btn-primary"><i class="fa fa-plus"></i>  Create</a>
+        </div>
+        <div class="w3l-table-info">
+            <h2>Department List</h2>
+            <form method="post">
+                <table class="w3l-table-info">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    <partial name="_TableButtonPartial" model="@item.Id" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </form>
+        </div>
+    </div>
+</div>

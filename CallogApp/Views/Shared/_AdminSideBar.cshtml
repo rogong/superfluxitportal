@@ -1,0 +1,74 @@
+﻿<div class="sidebar-menu">
+    <header class="logo1">
+        <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+    </header>
+    <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+    <div class="menu">
+        <ul id="menu">
+            @if (User.IsInRole("Super Admin"))
+            {
+                <li><a asp-area="admin" asp-controller="Home" asp-action="Index"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="Requests" asp-action="Index">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Request List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="Calls" asp-action="Index">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Calls</span><div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-area="Admin" asp-controller="Departments" asp-action="Index">
+                        <i class="fa fa-picture-o" aria-hidden="true">
+                        </i><span>Department List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="Issues" asp-action="Index">
+                        <i class="fa fa-bar-chart"></i>
+                        <span>Issue List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+                <li><a asp-area="Admin" asp-controller="Devices" asp-action="Index"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Device List</span><div class="clearfix"></div></a></li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="Status" asp-action="Index">
+                        <i class="fa fa-bar-chart"></i>
+                        <span>Status List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="RequestTypes" asp-action="Index">
+                        <i class="fa fa-bar-chart"></i>
+                        <span>Request Type List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="ITStaffs" asp-action="Index">
+                        <i class="fa fa-bar-chart"></i>
+                        <span>IT Staff List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="Roles" asp-action="Index">
+                        <i class="fa fa-bar-chart"></i>
+                        <span>Role List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+            }
+            <li id="menu-academico">
+                <a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Short Codes</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+                <ul id="menu-academico-sub">
+                    <li id="menu-academico-avaliacoes"><a href="icons.html">Icons</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="typography.html">Typography</a></li>
+                    <li id="menu-academico-avaliacoes"><a href="faq.html">Faq</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>

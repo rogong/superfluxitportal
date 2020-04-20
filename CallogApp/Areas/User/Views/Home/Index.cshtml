@@ -1,0 +1,84 @@
+﻿@model CallogApp.Models.Request
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/styles.css" />
+}
+
+<!---728x90--->
+<div class="w3layouts-two-grids">
+    <!---728x90--->
+    <div class="mid-class">
+        <div class="img-right-side">
+            <h3>Welcome to Superflux IT Portal</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget Lorem ipsum dolor sit
+                amet, consectetuer adipiscing elit. Aenean commodo ligula ege
+            </p>
+            <img src="~/images/b11.png" class="img-fluid" alt="">
+        </div>
+     
+
+        <!--Quote Form Start-->
+    <div class="col-md-4">
+        <div class="message">@ViewBag.Message</div>
+        <div class="card">
+            <div class="card-header text-light" style="background-color:#db6f6f">
+                <strong>  QUICK REQUEST</strong>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create" class="form-horizontal" style="font-size:11px">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                    @Html.Hidden("UserId")
+                    @Html.Hidden("StatusId")
+                    @Html.Hidden("DateCreated")
+
+                    <div class="form-group">
+                        <label asp-for="Subject" class="control-label"></label>
+                        <input asp-for="Subject" class="form-control form-control-sm mb-1" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="DepartmentId" class="control-label"></label>
+                        <select asp-for="DepartmentId" class="custom-select mb-1 text-sm" asp-items="ViewBag.DepartmentId" style="font-size:11px"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IssueId" class="control-label"></label>
+                        <select asp-for="IssueId" class="custom-select mb-1 text-sm" asp-items="ViewBag.IssueId" style="font-size:11px"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DeviceId" class="control-label"></label>
+                        <select asp-for="DeviceId" class="custom-select mb-1 text-sm" asp-items="ViewBag.DeviceId" style="font-size:11px"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RequestTypeId" class="control-label"></label>
+                        <select asp-for="RequestTypeId" class="custom-select mb-1 text-sm" asp-items="ViewBag.RequestTypeId" style="font-size:11px"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Message" class="control-label"></label>
+                        <textarea asp-for="Message" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+        <!--Quote Form End-->
+    </div>
+</div>
+
+
