@@ -19,6 +19,136 @@ namespace CallogApp.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CallogApp.Models.Approval", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AdvanceRequired")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("AnnualBudget")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ApprovalLevelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApprovedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ApprovedStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AuthorisedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Beneficiary")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CheckedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CurrencyId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("CurrentRequest")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("JobDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LeagerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaymentModeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PreparedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RequesterId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalCost")
+                        .HasColumnType("float");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("YTD")
+                        .HasColumnType("float");
+
+                    b.Property<double>("YTDPercent")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ApprovalLevelId");
+
+                    b.HasIndex("ApprovedStatusId");
+
+                    b.HasIndex("CurrencyId");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("PaymentModeId");
+
+                    b.HasIndex("RequesterId");
+
+                    b.ToTable("Approvals");
+                });
+
+            modelBuilder.Entity("CallogApp.Models.ApprovalLevel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApprovalLevels");
+                });
+
+            modelBuilder.Entity("CallogApp.Models.ApprovedStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApprovedStatuses");
+                });
+
             modelBuilder.Entity("CallogApp.Models.Call", b =>
                 {
                     b.Property<int>("Id")
@@ -61,6 +191,22 @@ namespace CallogApp.Data.Migrations
                     b.HasIndex("IssueId");
 
                     b.ToTable("Calls");
+                });
+
+            modelBuilder.Entity("CallogApp.Models.Currency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Currencies");
                 });
 
             modelBuilder.Entity("CallogApp.Models.Department", b =>
@@ -137,6 +283,22 @@ namespace CallogApp.Data.Migrations
                     b.ToTable("Issues");
                 });
 
+            modelBuilder.Entity("CallogApp.Models.PaymentMode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentModes");
+                });
+
             modelBuilder.Entity("CallogApp.Models.Request", b =>
                 {
                     b.Property<int>("Id")
@@ -210,6 +372,22 @@ namespace CallogApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RequestTypes");
+                });
+
+            modelBuilder.Entity("CallogApp.Models.Requester", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Requesters");
                 });
 
             modelBuilder.Entity("CallogApp.Models.Status", b =>
@@ -446,6 +624,49 @@ namespace CallogApp.Data.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("CallogApp.Models.Approval", b =>
+                {
+                    b.HasOne("CallogApp.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("CallogApp.Models.ApprovalLevel", "ApprovalLevel")
+                        .WithMany()
+                        .HasForeignKey("ApprovalLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CallogApp.Models.ApprovedStatus", "ApprovedStatus")
+                        .WithMany()
+                        .HasForeignKey("ApprovedStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CallogApp.Models.Currency", "Currency")
+                        .WithMany()
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CallogApp.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CallogApp.Models.PaymentMode", "PaymentMode")
+                        .WithMany()
+                        .HasForeignKey("PaymentModeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CallogApp.Models.Requester", "Requester")
+                        .WithMany()
+                        .HasForeignKey("RequesterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CallogApp.Models.Call", b =>

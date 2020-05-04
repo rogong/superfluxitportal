@@ -32,6 +32,32 @@ namespace CallogApp.Controllers
 
         }
 
+        public async Task<IActionResult> Dashboard()
+        {
+            var activeRequest = await _context.Requests
+                .Where(r => r.ITStaffId == 7)
+                .Where(r => r.UserId == User.Identity.Name)
+                .CountAsync();
+
+            var requests = await _context.Requests
+                .Where(r => r.UserId == User.Identity.Name)
+                .CountAsync();
+
+            var todayRequests =  await _context.Requests
+                .Where(r => r.UserId == User.Identity.Name)
+                .Where(r => r.DateCreated.Date == DateTime.Today.Date)
+                .CountAsync();
+
+            var users = await _context.ApplicationUsers.CountAsync();
+
+            ViewBag.activeRequestCount = activeRequest;
+            ViewBag.requestsCount = requests;
+            ViewBag.todayRequests = todayRequests;
+            ViewBag.users = users;
+
+            return View();
+        }
+
         public IActionResult Index()
         {
 
@@ -43,9 +69,11 @@ namespace CallogApp.Controllers
             ViewData["RequestTypeId"] = new SelectList(_context.RequestTypes, "Id", "Name");
             ViewData["DeviceId"] = new SelectList(_context.Devices, "Id", "Name");
             ViewData["StatusId"] = new SelectList(_context.Statuses, "Id", "Name");
+           /// ViewData["ITStaffId"] = new SelectList(_context.ITStaffs, "Id", "Name");
             ViewBag.DateCreated = DateTime.Now;
             ViewBag.UserId = User.Identity.Name;
             ViewBag.StatusId =  1;
+            ViewBag.ITStaffId = 7;
             TempData["Message"] = "Request sent successfully";
 
 
@@ -55,7 +83,7 @@ namespace CallogApp.Controllers
 
         //[Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,StatusId,UserId,DateCreated,DepartmentId,IssueId,DeviceId,RequestTypeId,Subject,Message,ResolvedBy")] Request request)
+        public async Task<IActionResult> Create([Bind("Id,StatusId,ITStaffId,UserId,DateCreated,DepartmentId,IssueId,DeviceId,RequestTypeId,Subject,Message,ResolvedBy")] Request request)
         {
             if(!User.Identity.IsAuthenticated)
             {
@@ -69,7 +97,7 @@ namespace CallogApp.Controllers
                 _context.Add(request);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Home", new { Area = "Admin" });
+                return RedirectToAction("Index", "UserRequest", new { Area = "User" });
             }
 
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
@@ -80,6 +108,7 @@ namespace CallogApp.Controllers
             ViewBag.DateCreated = DateTime.Now;
             ViewBag.UserId = User.Identity.Name;
             ViewBag.StatusId = 1;
+           
 
             return View(nameof(Index));
         }

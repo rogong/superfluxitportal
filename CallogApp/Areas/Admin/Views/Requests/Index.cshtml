@@ -5,9 +5,16 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-controller="Requests" asp-action="Index" method="get">
+    <p>
+        Department: <input type="text" name="SearchString" >
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
 <table class="w3l-table-info">
     <thead>
         <tr>

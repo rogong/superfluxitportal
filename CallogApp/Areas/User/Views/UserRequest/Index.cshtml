@@ -1,0 +1,116 @@
+﻿@model IEnumerable<CallogApp.Models.Request>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="w3l-table-info">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Department)*@
+                Dept.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Issue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Device)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.RequestType)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            @*<th>
+
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>*@
+            <th></th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (item.Status.Name == "Close")
+                {
+                    <i class="badge red"></i>
+                    <td class="bg-success text-white">
+
+                        @Html.DisplayFor(modelItem => item.Status.Name)
+                        <i class="hvr-icon-spin col-5 bg-danger"></i>
+                    </td>
+                }
+                else if (item.Status.Name == "Active")
+                {
+
+                    <td class="bg-primary text-white font-weight-bold">
+
+                        @Html.DisplayFor(modelItem => item.Status.Name)
+                        <i class="hvr-icon-spin col-5 bg-danger"></i>
+                    </td>
+                }
+                else if (item.Status.Name == "InProgress")
+                {
+                    <td class="bg-info text-white">
+
+                        @Html.DisplayFor(modelItem => item.Status.Name)
+                        <i class="hvr-icon-spin col-5 bg-danger"></i>
+                    </td>
+                }
+                else
+                {
+                    <td class="bg-danger text-white">
+
+                        @Html.DisplayFor(modelItem => item.Status.Name)
+                        <i class="hvr-icon-spin col-5 bg-danger"></i>
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Issue.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Device.Name)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.RequestType.Name)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>*@
+
+                <td>
+                    <partial name="_TableButtonPartial" model="@item.Id" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

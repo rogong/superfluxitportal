@@ -110,6 +110,16 @@ namespace CallogApp.Areas.Identity.Pages.Account
                         _logger.LogInformation("User logged in.");
                         return RedirectToAction("Index", "Home", new { Area = "Admin" });
                     }
+                    else if (await _userManager.IsInRoleAsync(user, SD.HOD))
+                    {
+                        _logger.LogInformation("User logged in.");
+                        return RedirectToAction("Dashboard", "Home", new { Area = "User" });
+                    }
+                    else if (await _userManager.IsInRoleAsync(user, SD.TeamMember))
+                    {
+                        _logger.LogInformation("User logged in.");
+                        return RedirectToAction("Dashboard", "Home", new { Area = "User" });
+                    }
                     else
                     {
                         _logger.LogInformation("User logged in.");

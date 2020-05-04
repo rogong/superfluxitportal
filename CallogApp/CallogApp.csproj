@@ -14,6 +14,8 @@
     <Compile Remove="Data\Migrations\20200408070455_AdjustCallModelAddStatus.Designer.cs" />
     <Compile Remove="Data\Migrations\20200408214617_unkownChanges.cs" />
     <Compile Remove="Data\Migrations\20200408214617_unkownChanges.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200503122044_ApprovalAndOthers.cs" />
+    <Compile Remove="Data\Migrations\20200503122044_ApprovalAndOthers.Designer.cs" />
   </ItemGroup>
 
 
@@ -24,7 +26,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
     <PackageReference Include="SweetAlert" Version="1.0.0" />
   </ItemGroup>
 

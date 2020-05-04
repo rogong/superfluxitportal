@@ -13,7 +13,7 @@ using CallogApp.Utility;
 namespace CallogApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = SD.SuperAdminUser)]
+    [Authorize(Roles = SD.SuperAdminUser + "," + SD.AdminUser)]
     public class RequestsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,22 +24,24 @@ namespace CallogApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Requests
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var requests = _context.Requests
+            var requests = from r in _context.Requests
                 .Include(r => r.Department)
                 .Include(r => r.Device)
                 .Include(r => r.Issue)
                 .Include(r => r.RequestType)
                 .Include(r => r.Status)
                 .Include(r => r.ITStaff)
-                ;
+               select r ;
            
             
-            if(requests == null)
+            if(!String.IsNullOrEmpty(searchString))
             {
-                return RedirectToAction("Create", "Request", new { Area = "Admin" });
+                requests = requests.Where(r => r.Department.Name.Contains(searchString));
             }
+
+
             return View(await requests.ToListAsync());
         }
 
@@ -59,6 +61,8 @@ namespace CallogApp.Areas.Admin.Controllers
                 .Include(r => r.Status)
                 .Include(r => r.ITStaff)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+             
             if (request == null)
             {
                 return NotFound();

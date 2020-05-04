@@ -7,6 +7,23 @@
         <ul id="menu">
             @if (User.IsInRole("Super Admin"))
             {
+                <li id="menu-academico">
+                    <a asp-area="user" asp-controller="Approval" asp-action="Create">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Create Approval</span><div class="clearfix"></div>
+                    </a>
+                </li>
+                <li id="menu-academico">
+                    <a asp-area="admin" asp-controller="approvals" asp-action="Index"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Approval Admin</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a asp-area="admin" asp-controller="requesters" asp-action="Index">Requesters</a></li>
+                        <li id="menu-academico-avaliacoes"><a asp-area="admin" asp-controller="approvedstatus" asp-action="Index">Approved Status</a></li>
+                        <li id="menu-academico-avaliacoes"><a asp-area="admin" asp-controller="approvallevels" asp-action="Index">Approval Levels</a></li>
+                        <li id="menu-academico-avaliacoes"><a asp-area="admin" asp-controller="currencies" asp-action="Index">Currencies</a></li>
+                        <li id="menu-academico-avaliacoes"><a asp-area="admin" asp-controller="paymentmodes" asp-action="Index">Payment Modes</a></li>
+
+                    </ul>
+                </li>
                 <li><a asp-area="admin" asp-controller="Home" asp-action="Index"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
                 <li id="menu-academico">
                     <a asp-area="admin" asp-controller="Requests" asp-action="Index">
@@ -60,14 +77,43 @@
                     </a>
                 </li>
             }
-            <li id="menu-academico">
-                <a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Short Codes</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                <ul id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="icons.html">Icons</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="typography.html">Typography</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="faq.html">Faq</a></li>
-                </ul>
-            </li>
+
+
+            @if (User.IsInRole("Team Member"))
+            {
+                <li><a asp-area="user" asp-controller="Home" asp-action="Dashboard"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
+                <li id="menu-academico">
+                    <a asp-area="user" asp-controller="UserRequest" asp-action="Index">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Request List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li id="menu-academico">
+                    <a asp-area="user" asp-controller="UserRequest" asp-action="Create">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Create Request</span><div class="clearfix"></div>
+                    </a>
+                </li>
+
+            }
+            @if (User.IsInRole("HOD"))
+            {
+                <li><a asp-area="user" asp-controller="Home" asp-action="Dashboard"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
+                <li id="menu-academico">
+                    <a asp-area="user" asp-controller="UserRequest" asp-action="Index">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Request List</span><div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li id="menu-academico">
+                    <a asp-area="user" asp-controller="UserRequest" asp-action="Create">
+                        <i class="fa fa-envelope nav_icon">
+                        </i><span>Create Request</span><div class="clearfix"></div>
+                    </a>
+                </li>
+            }
 
         </ul>
     </div>

@@ -26,5 +26,12 @@ namespace CallogApp.Data
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<ITStaff> ITStaffs { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<PaymentMode> PaymentModes { get; set; }
+        public DbSet<Approval> Approvals { get; set; }
+        public DbSet<ApprovalLevel> ApprovalLevels { get; set; }
+        public DbSet<ApprovedStatus> ApprovedStatuses { get; set; }
+        public DbSet<Requester> Requesters { get; set; }
+
     }
 }

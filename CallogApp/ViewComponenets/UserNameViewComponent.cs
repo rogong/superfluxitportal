@@ -19,16 +19,17 @@ namespace CallogApp.ViewComponenets
                 _db = db;
             }
 
-            public async Task<IViewComponentResult> InvokeAsync()
-            {
-                var claimsIdentity = (ClaimsIdentity)User.Identity;
-                var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-                var userFromDb = await _db.ApplicationUsers.FirstOrDefaultAsync(u => u.Id == claims.Value);
 
-                return View(userFromDb);
-            }
 
+            var userFromDb = await _db.ApplicationUsers.FirstOrDefaultAsync(u => u.Id == claims.Value);
+            return View(userFromDb);
         }
+
+    }
     
 }

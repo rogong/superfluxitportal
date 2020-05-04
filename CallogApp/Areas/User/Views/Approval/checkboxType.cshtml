@@ -1,0 +1,242 @@
+﻿@section Styles{
+
+}
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row" style="background-color:#ffffff; margin:10px">
+    <div class="text-center"><img src="~/images/logo.png" height="30" /></div>
+
+    <form asp-action="Create">
+        <div class="row">
+
+            @*Left side*@
+            <div class="col-md-6">
+
+                <div class="form-group" style="font-weight:200;margin-left:25px">
+
+                    <div>MODE OF PAYMENT</div>
+                    <div class="col-sm-8">
+                        <div class="checkbox-inline1"><label><input type="checkbox" checked> CASH</label></div>
+                        <div class="checkbox-inline1"><label><input type="checkbox"> CHEQUE</label></div>
+                        <div class="checkbox-inline1"><label><input type="checkbox"> TRANSFER</label></div>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>  @*Left side*@
+
+
+            @*Right side*@
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">Name:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">Date</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="date" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form"></label>
+                    <div class="col-sm-6">
+                        <div class="checkbox-inline"><label><input type="checkbox"> STAFF</label></div>
+                        <div class="checkbox-inline"><label><input type="checkbox" checked=""> SUPPLIER</label></div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">LEAGER NAME:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">ANNUAL BUDGET:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">YTD:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">CURRENT REQST:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">YTD%:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>@*Right side*@
+
+
+            <div class="form-group" style="font-weight:200;margin-left:30px">
+
+                <div>CURRENCY</div>
+                <div class="col-sm-8">
+                    <div class="checkbox-inline"><label><input type="checkbox" checked> NAIRA</label></div>
+                    <div class="checkbox-inline"><label><input type="checkbox"> DOLLAR</label></div>
+                    <div class="checkbox-inline"><label><input type="checkbox"> POUNDS</label></div>
+                    <div class="checkbox-inline"><label><input type="checkbox"> EURO</label></div>
+
+                </div>
+            </div>
+
+
+
+            <div class="form-horizontal">
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">BENEFICIARY DETAILS:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">DESCRIPTION OF JOB:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">REASON FOR ADVANCE PAYMENT:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">ADVANCE REQUIRED:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" />
+                        <span class="text-danger"></span>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>  @*Row*@
+
+        <div class="row" style="margin:10px">
+            <div class="col-md-3">
+                <div>
+                    <textarea cols="2" class="form-control"></textarea>
+                </div>
+                <label>PREPARED BY:</label>
+            </div>
+            <div class="col-md-3">
+                <div><textarea cols="2" class="form-control"></textarea></div>
+                <label>CHECKED BY:</label>
+            </div>
+            <div class="col-md-3">
+                <div><textarea cols="2" class="form-control"></textarea></div>
+                <label>AUTHORISED BY:</label>
+            </div>
+            <div class="col-md-3">
+                <div> <textarea cols="2" class="form-control"></textarea></div>
+                <label>
+                    APPROVED BY
+                    PRESIDENT/CEO
+
+                </label>
+
+
+            </div>
+            <br />
+            <div class="row" id="ignorePDF">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary col-md-6 text-center">Submit</button>
+
+                </div>
+
+
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<br />
+<br />
+
+
+
+@section Scripts{
+    <!-- jQuery library
+    <script src="js/jquery.min.js"></script>-->
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+    <script>
+
+    $('#pdfButton').click(function () {
+            var doc = new jsPDF();
+    doc.save('approval-process.pdf');
+
+    }
+        )
+    </script>
+}

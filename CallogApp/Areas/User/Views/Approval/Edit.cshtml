@@ -1,0 +1,248 @@
+﻿@model CallogApp.Models.Approval
+@section Styles{
+
+}
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row" style="background-color:#ffffff; margin:10px">
+    <div class="text-center"><img src="~/images/logo.png" height="30" /></div>
+
+    <form asp-action="Create" id="form">
+        <div class="row" id="inputext">
+
+
+            @*Left side*@
+            <div class="col-md-6">
+
+                <div class="form-group col-md-6" style="font-weight:200;margin-left:25px">
+
+                    <div>MODE OF PAYMENT</div>
+
+                    <select asp-for="PaymentModeId" class="form-control" asp-items="ViewBag.PaymentModeId"></select>
+
+                    <br /><br />
+
+                    <div>CURRENCY</div>
+
+                    <select asp-for="CurrencyId" class="form-control" asp-items="ViewBag.CurrencyId"></select>
+
+
+
+                </div>
+
+
+
+
+
+            </div>  @*Left side*@
+
+
+            @*Right side*@
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">DATE:</label>
+                    <div class="col-sm-6">
+
+                        <input asp-for="DateCreated" class="form-control" />
+                        <span asp-validation-for="DateCreated" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">NAME:</label>
+                    <div class="col-sm-6">
+
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">IDENTITY:</label>
+                    <div class="col-sm-6">
+                        <select asp-for="RequesterId" class="form-control" asp-items="ViewBag.RequesterId"></select>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">LEAGER NAME:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="LeagerName" class="form-control" />
+                        <span asp-validation-for="LeagerName" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">ANNUAL BUDGET:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="AnnualBudget" class="form-control" />
+                        <span asp-validation-for="AnnualBudget" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">YTD:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="YTD" class="form-control" />
+                        <span asp-validation-for="YTD" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">CURRENT REQST:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="CurrentRequest" class="form-control" />
+                        <span asp-validation-for="CurrentRequest" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">YTD%:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="YTDPercent" class="form-control" />
+                        <span asp-validation-for="YTDPercent" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>@*Right side*@
+
+
+        </div>
+
+        <br /><br />
+        <div class="row">
+
+
+            <div class="form-horizontal">
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">BENEFICIARY DETAILS:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Beneficiary" class="form-control" />
+                        <span asp-validation-for="Beneficiary" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">DESCRIPTION OF JOB:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="JobDescription" class="form-control" />
+                        <span asp-validation-for="JobDescription" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">REASON FOR ADVANCE PAYMENT:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Reason" class="form-control" />
+                        <span asp-validation-for="Reason" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">TOTAL COST:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="TotalCost" class="form-control" />
+                        <span asp-validation-for="TotalCost" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label hor-form">ADVANCE REQUIRED:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="AdvanceRequired" class="form-control" />
+                        <span asp-validation-for="AdvanceRequired" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>  @*Row*@
+
+        <div class="row" style="margin:10px">
+            <div class="col-md-3">
+                <input asp-for="PreparedBy" class="form-control" />
+                <span asp-validation-for="PreparedBy" class="text-danger"></span>
+                <label>PREPARED BY:</label>
+            </div>
+            <div class="col-md-3">
+
+                <input asp-for="CheckedBy" class="form-control" />
+                <span asp-validation-for="CheckedBy" class="text-danger"></span>
+                <label>CHECKED BY:</label>
+            </div>
+            <div class="col-md-3">
+                <input asp-for="AuthorisedBy" class="form-control" />
+                <span asp-validation-for="AuthorisedBy" class="text-danger"></span>
+                <label>AUTHORISED BY:</label>
+            </div>
+            <div class="col-md-3">
+                <input asp-for="ApprovedBy" class="form-control" />
+                <span asp-validation-for="ApprovedBy" class="text-danger"></span>
+                <label>
+                    APPROVED BY
+                    PRESIDENT/CEO
+
+                </label>
+
+
+            </div>
+            <br />
+            <div class="row" id="ignorePDF">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button id="buttons" class="btn btn-primary col-md-6 text-center">Submit</button>
+
+
+
+                </div>
+
+
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<br />
+<br />
+
+
+
+@section Scripts{
+    <!-- jQuery library
+    <script src="js/jquery.min.js"></script>-->
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+    <script>
+
+    </script>
+}
